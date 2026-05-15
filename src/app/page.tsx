@@ -1,10 +1,6 @@
-import { getPragueEvents, groupByDate } from "@/lib/luma";
 import EventsLayout from "@/components/EventsLayout";
 
-export default async function Home() {
-  const events = await getPragueEvents();
-  const grouped = groupByDate(events);
-
+export default function Home() {
   return (
     <main className="min-h-screen">
       <header className="border-b border-gray-100 px-6 py-4 flex items-center justify-between">
@@ -22,9 +18,8 @@ export default async function Home() {
             </a>
           </p>
         </div>
-        <span className="text-xs text-gray-400">{events.length} events</span>
       </header>
-      <EventsLayout grouped={grouped} />
+      <EventsLayout />
     </main>
   );
 }
